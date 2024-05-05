@@ -4,26 +4,6 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-// Configuration
-#define SSD1357_DC_GPIO_Port	GPIOA
-#define SSD1357_DC_LL_Pin	LL_GPIO_PIN_6
-#define SSD1357_NSS_GPIO_Port	GPIOA
-#define SSD1357_NSS_LL_Pin	LL_GPIO_PIN_4
-#define SSD1357_OLED_64x64
-
-#ifdef SSD1357_OLED_64x64
-#define SSD1357_START_ROW	0x00
-#define SSD1357_START_COL	0x20
-#define SSD1357_STOP_ROW 	0x3F //START_ROW + 64 - 1
-#define SSD1357_STOP_COL	0x5F //START_COL + 64 - 1
-#else // assume 128x128
-// Not tested
-#define SSD1357_START_ROW	0x00
-#define SSD1357_START_COL	0x00
-#define SSD1357_STOP_ROW 	0x7F
-#define SSD1357_STOP_COL	0x7F
-#endif
-
 void SSD1357_SetCommandLock(bool locked);
 void SSD1357_SetSleepMode(bool on);
 void SSD1357_SetClockDivider(uint8_t divider_code);
